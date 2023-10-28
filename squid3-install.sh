@@ -26,8 +26,8 @@ chmod 755 /usr/local/bin/sok-find-os
 /usr/bin/wget -q --no-check-certificate -O /usr/local/bin/squid-uninstall https://raw.githubusercontent.com/flexeere/AD-Proxy/main/squid-uninstall.sh > /dev/null 2>&1
 chmod 755 /usr/local/bin/squid-uninstall
 
-/usr/bin/wget -q --no-check-certificate -O /usr/local/bin/squid-add-user https://raw.githubusercontent.com/flexeere/AD-Proxy/main/squid-add-user.sh > /dev/null 2>&1
-chmod 755 /usr/local/bin/squid-add-user
+/usr/bin/wget -q --no-check-certificate -O /usr/local/bin/adv-add-user https://raw.githubusercontent.com/flexeere/AD-Proxy/main/adv-add-user.sh > /dev/null 2>&1
+chmod 755 /usr/local/bin/adv-add-user
 
 if [[ -d /etc/squid/ || -d /etc/squid3/ ]]; then
     echo "AD Proxy already installed."
