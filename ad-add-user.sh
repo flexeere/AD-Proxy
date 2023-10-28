@@ -30,7 +30,6 @@ chmod 755 /usr/local/bin/squid-uninstall
 chmod 755 /usr/local/bin/squid-add-user
 
 if [[ -d /etc/squid/ || -d /etc/squid3/ ]]; then
-    echo "AD Proxy already installed."
 
     SQUID_USER=$(cat /dev/urandom | tr -dc 'a-z' | fold -w 8 | head -n 1)
     SQUID_PW=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 8 | head -n 1)
