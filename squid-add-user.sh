@@ -20,13 +20,20 @@ if [ ! -f /usr/bin/htpasswd ]; then
     exit 1
 fi
 
-read -e -p "Enter Proxy username: " proxy_username
+SQUID_USER=$(cat /dev/urandom | tr -dc 'a-z' | fold -w 8 | head -n 1)
+SQUID_PW=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 8 | head -n 1)
 
-if [ -f /etc/squid/passwd ]; then
-    /usr/bin/htpasswd /etc/squid/passwd $proxy_username
-else
-    /usr/bin/htpasswd -c /etc/squid/passwd $proxy_username
-fi
+htpasswd -b -c /etc/squid/passwd $SQUID_USER $SQUID_PW > /dev/null 2>&1
 
-systemctl reload squid > /dev/null 2>&1
-service squid3 restart > /dev/null 2>&1
+sed -i 's/Squid proxy-caching web server/AD Proxy Service/g'  /etc/squid/squid.conf
+
+systemctl restart squid > /dev/null 2>&1
+systemctl restart squid3 > /dev/null 2>&1
+
+echo -e "${NC}"
+echo -e "${GREEN}Thank you for using AD Proxy Service.${NC}"
+echo
+echo -e "${CYAN}Username : ${SQUID_USER}${NC}"
+echo -e "${CYAN}Password : ${SQUID_PW}${NC}"
+echo -e "${CYAN}Port : 3128${NC}"
+echo -e "${NC}"
