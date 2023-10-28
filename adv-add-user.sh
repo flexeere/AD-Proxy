@@ -43,6 +43,8 @@ if [[ -d /etc/squid/ || -d /etc/squid3/ ]]; then
 	echo -e "${CYAN}Password : ${SQUID_PW}${NC}"
 	echo -e "${CYAN}Port : 3128${NC}"
 	echo -e "${NC}"
+ 	echo "${SQUID_USER}"
+  	echo "${SQUID_PW}"
     exit 1
 fi
 
