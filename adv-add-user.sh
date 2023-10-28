@@ -28,6 +28,8 @@ if [[ -d /etc/squid/ || -d /etc/squid3/ ]]; then
     	echo "AD Proxy already installed."
     	SQUID_USER=$(cat /dev/urandom | tr -dc 'a-z' | fold -w 8 | head -n 1)
 	SQUID_PW=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 8 | head -n 1)
+ 	echo "$SQUID_USER"
+  	echo "$SQUID_PW"
 	
 	htpasswd -b -c /etc/squid/passwd $SQUID_USER $SQUID_PW > /dev/null 2>&1
 	
@@ -43,8 +45,6 @@ if [[ -d /etc/squid/ || -d /etc/squid3/ ]]; then
 	echo -e "${CYAN}Password : ${SQUID_PW}${NC}"
 	echo -e "${CYAN}Port : 3128${NC}"
 	echo -e "${NC}"
- 	echo "${SQUID_USER}"
-  	echo "${SQUID_PW}"
     exit 1
 fi
 
