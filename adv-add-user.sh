@@ -20,6 +20,10 @@ if [ ! -f /usr/bin/htpasswd ]; then
     exit 1
 fi
 
+GREEN='\033[0;32m'
+CYAN='\033[0;36m'
+NC='\033[0m'
+
 SQUID_USER=$(cat /dev/urandom | tr -dc 'a-z' | fold -w 8 | head -n 1)
 SQUID_PW=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 8 | head -n 1)
 
