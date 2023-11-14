@@ -10,6 +10,8 @@ Auto install AD 3 proxy on following linux OS.
 * CentOS Steam 8, 9
 * AlmaLinux 8, 9
 
+* Port : 3128
+
 
 ## Install AD
 
