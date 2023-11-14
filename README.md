@@ -19,3 +19,11 @@ To install, run the script
 wget https://raw.githubusercontent.com/flexeere/AD-Proxy/main/squid3-install.sh -O squid3-install.sh
 bash squid3-install.sh
 ```
+
+# Create Proxy Users
+
+To create users, run
+
+```
+adv-add-user
+```
