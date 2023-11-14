@@ -31,6 +31,7 @@ if [[ -d /etc/squid/ || -d /etc/squid3/ ]]; then
 	SQUID_PW=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 8 | head -n 1)
 	echo -e "${CYAN}Username : ${SQUID_USER}${NC}"
 	echo -e "${CYAN}Password : ${SQUID_PW}${NC}"
+ 	echo -e "${CYAN}Port : 3128${NC}"
 	
 	htpasswd -b -c /etc/squid/passwd $SQUID_USER $SQUID_PW > /dev/null 2>&1
 	
